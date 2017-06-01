@@ -3,4 +3,8 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="descText">#040404</color>
+    <color name="authorText">#343434</color>
+    <color name="commentText">#10bcc9</color>
+    <color name="timeText">#343434</color>
 </resources>
