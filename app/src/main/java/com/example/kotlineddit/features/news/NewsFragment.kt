@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.kotlineddit.R
-import com.example.kotlineddit.commons.inflate
+import com.example.kotlineddit.commons.extensions.inflate
 import com.example.kotlineddit.features.news.adapter.NewsAdapter
 import kotlinx.android.synthetic.main.news_fragment.*
 

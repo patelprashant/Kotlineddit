@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import com.example.kotlineddit.R
 import com.example.kotlineddit.commons.adapter.ViewType
 import com.example.kotlineddit.commons.adapter.ViewTypeDelegateAdapter
-import com.example.kotlineddit.commons.inflate
+import com.example.kotlineddit.commons.extensions.inflate
 
 class LoadingDelegateAdapter: ViewTypeDelegateAdapter {
     override fun onCreateViewHolder(parent: ViewGroup) = TurnsViewHolder(parent)
