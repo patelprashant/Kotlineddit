@@ -27,7 +27,8 @@ class NewsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int):RecyclerView.ViewHolder = delegateAdapters.get(viewType).onCreateViewHolder(parent as ViewGroup)
+
+    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RecyclerView.ViewHolder = delegateAdapters.get(viewType).onCreateViewHolder(parent as ViewGroup)
 
     override fun getItemViewType(position: Int): Int {
         return this.items[position].getViewType()
