@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.kotlineddit.R
+import com.example.kotlineddit.commons.RedditNewsItem
 import com.example.kotlineddit.commons.extensions.inflate
 import com.example.kotlineddit.features.news.adapter.NewsAdapter
 import kotlinx.android.synthetic.main.news_fragment.*
@@ -23,6 +24,22 @@ class NewsFragment : Fragment() {
         news_list.layoutManager = LinearLayoutManager(context)
 
         initAdapter()
+
+        //Create dummy data of the news adapter
+        if (savedInstanceState == null) {
+            val news = mutableListOf<RedditNewsItem>()
+            for (i in 1..10) {
+                news.add(RedditNewsItem(
+                        "author$i",
+                        "Title$i",
+                        i, // number of comments
+                        1457207701L - i * 200, //time
+                        "http://lorempixel.com/200/200/technics/$i", // image url
+                        "url"
+                ))
+            }
+            (news_list.adapter as NewsAdapter).addNews(news)
+        }
     }
 
     private fun initAdapter() {
