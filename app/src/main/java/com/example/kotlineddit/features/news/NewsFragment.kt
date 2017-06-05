@@ -1,6 +1,7 @@
 package com.example.kotlineddit.features.news
 
 import android.os.Bundle
+import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
@@ -13,6 +14,8 @@ import kotlinx.android.synthetic.main.news_fragment.*
 
 
 class NewsFragment : Fragment() {
+    private val newsManager by lazy { NewsManager() }
+
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return container?.inflate(R.layout.news_fragment)
     }
@@ -33,6 +36,17 @@ class NewsFragment : Fragment() {
 
     private fun requestNews() {
 //        (news_list.adapter as NewsAdapter).addNews(news)
+        val subscription = newsManager.getNews()
+                .subscribe(
+                        {
+                            retrievedNews ->
+                            (news_list.adapter as NewsAdapter).addNews(retrievedNews)
+                        },
+                        {
+                            e ->
+                            Snackbar.make(news_list, e.message ?: "", Snackbar.LENGTH_LONG).show()
+                        }
+                )
     }
 
 
