@@ -2,18 +2,18 @@ package com.example.kotlineddit.features.news
 
 import android.os.Bundle
 import android.support.design.widget.Snackbar
-import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.kotlineddit.R
+import com.example.kotlineddit.commons.RxBaseFragment
 import com.example.kotlineddit.commons.extensions.inflate
 import com.example.kotlineddit.features.news.adapter.NewsAdapter
 import kotlinx.android.synthetic.main.news_fragment.*
 
 
-class NewsFragment : Fragment() {
+class NewsFragment : RxBaseFragment() {
     private val newsManager by lazy { NewsManager() }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -47,8 +47,8 @@ class NewsFragment : Fragment() {
                             Snackbar.make(news_list, e.message ?: "", Snackbar.LENGTH_LONG).show()
                         }
                 )
+        subscriptions.add(subscription)
     }
-
 
     private fun initAdapter() {
         if (news_list.adapter == null) {
