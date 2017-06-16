@@ -11,6 +11,7 @@ import com.example.kotlineddit.commons.RxBaseFragment
 import com.example.kotlineddit.commons.extensions.inflate
 import com.example.kotlineddit.features.news.adapter.NewsAdapter
 import kotlinx.android.synthetic.main.news_fragment.*
+import rx.schedulers.Schedulers
 
 
 class NewsFragment : RxBaseFragment() {
@@ -37,6 +38,7 @@ class NewsFragment : RxBaseFragment() {
     private fun requestNews() {
 //        (news_list.adapter as NewsAdapter).addNews(news)
         val subscription = newsManager.getNews()
+                .subscribeOn(Schedulers.io())
                 .subscribe(
                         {
                             retrievedNews ->
